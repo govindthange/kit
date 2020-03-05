@@ -1,0 +1,102 @@
+---
+# Source: hello-world/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: System One
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: hello-world/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: System One
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+---
+# Source: hello-world/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: System One
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sys1
+      app.kubernetes.io/instance: pre-alpha
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sys1
+        app.kubernetes.io/instance: pre-alpha
+    spec:
+      serviceAccountName: System One
+      securityContext:
+        {}
+      containers:
+        - name: hello-world
+          securityContext:
+            {}
+          image: "nginx:1.16.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
+---
+# Source: hello-world/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "System One Tester"
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['System One:80']
+  restartPolicy: Never

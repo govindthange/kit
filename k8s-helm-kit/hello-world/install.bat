@@ -1,5 +1,5 @@
 echo off
-set helmCommand=helm upgrade --install hello-world ./hello-world
+set helmCommand=helm upgrade --install pre-alpha ./hello-world
 
 :: Set project ID
 set PROJECT_ID=my-kubernetes-project-268407
