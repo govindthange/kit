@@ -1,8 +1,12 @@
 echo off
-set uninstallCommand=helm uninstall pre-alpha
+
+set RELEASE_NAME=pre-alpha
+
+set uninstallCommand=helm uninstall %RELEASE_NAME%
+set delCommand=helm delete %RELEASE_NAME%
+
 echo %uninstallCommand%
 %uninstallCommand%
 
-set delCommand=helm delete pre-alpha
 echo %delCommand%
 %delCommand%
