@@ -22,3 +22,12 @@ kubectl config set-context --current --namespace=$NAMESPACE
 echo "https://console.cloud.google.com/kubernetes/workload?project=$PROJECT_ID"
 
 helm install $RELEASE_NAME ./$APP_NAME
+
+gcloud compute firewall-rules create sys1-svc-rule --allow=tcp:32079
+
+kubectl get nodes -o wide
+
+echo "Use the EXTERNAL-IP to curl"
+# curl http://<EXTERNAL-IP>:32079
+
+# kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
