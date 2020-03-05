@@ -34,3 +34,11 @@ Hello World is a sample app to test deployment of microservices on a kubernetes 
 	```
 		$ uninstall.sh
 	```
+ * If there are no errors copy the EXTERNAL-IP address of the node from the output of the following command:
+	```
+		$ kubectl get nodes -o wide
+	```
+ * Open http://<EXTERNAL-IP>:32079 
+	```
+		$ curl http://<EXTERNAL-IP>:32079
+	```
