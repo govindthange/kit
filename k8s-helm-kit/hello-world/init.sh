@@ -11,12 +11,8 @@ NAMESPACE=$APP_NAME-ns
 gcloud config set project $PROJECT_ID
 
 # Create GKE
-echo Create $CLUSTER_NAME
-
 gcloud config set compute/zone $CLUSTER_REGION
-
-#gcloud container clusters create $CLUSTER_NAME --num-nodes 1 --machine-type g1-small
-gcloud container clusters create hello-world-gke1 --num-nodes 1 --machine-type g1-small
+gcloud container clusters create $CLUSTER_NAME --num-nodes 1 --machine-type g1-small
 
 # Connect to your Kubernetes cluster by executing this command
 gcloud container clusters get-credentials $CLUSTER_NAME --region $CLUSTER_REGION
