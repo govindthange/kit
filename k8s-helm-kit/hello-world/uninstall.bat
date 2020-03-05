@@ -2,7 +2,7 @@
 
 set PROJECT_ID=my-kubernetes-project-268407
 set RELEASE_NAME=pre-alpha
-set CLUSTER_NAME=hello-world-cluster
+set CLUSTER_NAME=hello-world-gke
 set CLUSTER_REGION=asia-south1-a
 set NAMESPACE=hello-world-ns
 

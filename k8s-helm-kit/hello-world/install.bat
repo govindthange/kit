@@ -4,7 +4,7 @@ echo off
 set PROJECT_ID=my-kubernetes-project-268407
 set APP_NAME=hello-world
 set RELEASE_NAME=pre-alpha
-set CLUSTER_NAME=hello-world-cluster
+set CLUSTER_NAME=hello-world-gke
 set CLUSTER_REGION=asia-south1-a
 set NAMESPACE=hello-world-ns
 
