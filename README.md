@@ -38,7 +38,7 @@ Hello World is a sample app to test deployment of microservices on a kubernetes 
 	```
 		$ kubectl get nodes -o wide
 	```
- * Open http://<EXTERNAL-IP>:32079 
+ * Open http://"EXTERNAL-IP":32079 
 	```
 		$ curl http://<EXTERNAL-IP>:32079
 	```
