@@ -6,7 +6,7 @@ set APP_NAME=hello-world
 set RELEASE_NAME=pre-alpha
 set CLUSTER_NAME=hello-world-cluster
 set CLUSTER_REGION=asia-south1-a
-set NAMESPACE=helloworld
+set NAMESPACE=hello-world-ns
 
 :: Configure helm command
 set helmCommand=helm upgrade --install %RELEASE_NAME% ./%APP_NAME%
