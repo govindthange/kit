@@ -30,6 +30,7 @@ Hello World is a sample app to test deployment of microservices on a kubernetes 
 		$ init.sh
 		$ install.sh
 	```
+ * Copy NODE-PORT displayed in the output of install.sh script.
  * Run following script to uninstall appplication
 	```
 		$ uninstall.sh
@@ -42,7 +43,7 @@ Hello World is a sample app to test deployment of microservices on a kubernetes 
 	```
 		$ kubectl get nodes -o wide
 	```
- * Finally open http://"EXTERNAL-IP":32079 in any browser.
+ * Finally open http://"EXTERNAL-IP":"NODE-PORT" in any browser.
 	```
-		$ curl http://<EXTERNAL-IP>:32079
+		$ curl http://<EXTERNAL-IP>:<NODE-PORT>
 	```
