@@ -8,9 +8,6 @@ CLUSTER_NAME=$APP_NAME-gke
 CLUSTER_REGION=asia-south1-a
 NAMESPACE=$APP_NAME-ns
 
-# Configure helm command
-helmCommand=helm install $RELEASE_NAME ./$APP_NAME
-
 # Configure GCP
 gcloud config set project $PROJECT_ID
 
@@ -41,11 +38,9 @@ fi
 
 read -p "Press [Enter] to execute next command."
 kubectl get nodes -o wide
-read -p "Press [Enter] to execute next command."
-echo "Use the EXTERNAL-IP to curl"
-# curl http://<EXTERNAL-IP>:32079
 
-# kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+echo "Use the EXTERNAL-IP to curl like so:"
+echo "curl http://<EXTERNAL-IP>:$nodePort"
 
 read -p "Press [Enter] key to exit..."
 
