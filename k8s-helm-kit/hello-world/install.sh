@@ -9,7 +9,7 @@ CLUSTER_REGION=asia-south1-a
 NAMESPACE=$APP_NAME-ns
 
 # Configure helm command
-set helmCommand=helm install $RELEASE_NAME ./$APP_NAME
+helmCommand=helm install $RELEASE_NAME ./$APP_NAME
 
 # Configure GCP
 gcloud config set project $PROJECT_ID
@@ -23,13 +23,31 @@ echo "https://console.cloud.google.com/kubernetes/workload?project=$PROJECT_ID"
 
 helm install $RELEASE_NAME ./$APP_NAME
 
-gcloud compute firewall-rules create sys1-svc-rule --allow=tcp:32079
+nodePort=$(kubectl get svc -o jsonpath='{.items[*].spec.ports[0].nodePort}')
+echo "Port number allocated in cluster node for accessing service: $nodePort"
 
+firewallRule=$(gcloud compute firewall-rules list --format=value\(name\) --filter=name=sys1-svc-rule)
+echo "Firewall Rule Name: $firewallRule"
+
+if [ "$firewallRule" = "sys1-svc-rule" ]; then
+	echo "Firewall rule found! Updating rule for port $nodePort"
+	read -p "Press [Enter] to execute next command."
+	$(gcloud compute firewall-rules update sys1-svc-rule --allow=tcp:$nodePort)
+else
+	echo "Creating firewall rule for port $nodePort"
+	read -p "Press [Enter] to execute next command."
+	$(gcloud compute firewall-rules create sys1-svc-rule --allow=tcp:$nodePort)
+fi
+
+read -p "Press [Enter] to execute next command."
 kubectl get nodes -o wide
-
+read -p "Press [Enter] to execute next command."
 echo "Use the EXTERNAL-IP to curl"
 # curl http://<EXTERNAL-IP>:32079
 
 # kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
 
 read -p "Press [Enter] key to exit..."
+
+#if [ 1 -eq 0 ]; then
+#fi
