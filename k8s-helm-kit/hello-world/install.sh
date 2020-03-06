@@ -31,3 +31,5 @@ echo "Use the EXTERNAL-IP to curl"
 # curl http://<EXTERNAL-IP>:32079
 
 # kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+
+read -p "Press [Enter] key to exit..."

@@ -18,3 +18,5 @@ gcloud container clusters create $CLUSTER_NAME --num-nodes 1 --machine-type g1-s
 gcloud container clusters get-credentials $CLUSTER_NAME --region $CLUSTER_REGION
 kubectl create namespace $NAMESPACE
 kubectl config set-context --current --namespace=$NAMESPACE
+
+read -p "Press [Enter] key to exit..."
