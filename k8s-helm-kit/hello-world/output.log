@@ -1,0 +1,150 @@
+Release "pre-alpha" has been upgraded. Happy Helming!
+NAME: pre-alpha
+LAST DEPLOYED: Fri Mar  6 09:41:24 2020
+NAMESPACE: hello-world-ns
+STATUS: pending-upgrade
+REVISION: 2
+USER-SUPPLIED VALUES:
+version: 0.1.1
+
+COMPUTED VALUES:
+affinity: {}
+fullnameOverride: system-one
+image:
+  pullPolicy: IfNotPresent
+  repository: nginx
+imagePullSecrets: []
+ingress:
+  annotations: {}
+  enabled: false
+  hosts:
+  - host: chart-example.local
+    paths: []
+  tls: []
+nameOverride: sys1
+nodeSelector: {}
+podSecurityContext: {}
+replicaCount: 1
+resources: {}
+securityContext: {}
+service:
+  nodePort: 32079
+  port: 80
+  type: NodePort
+serviceAccount:
+  annotations: {}
+  create: true
+  name: null
+tolerations: []
+version: 0.1.1
+
+HOOKS:
+---
+# Source: hello-world/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "system-one Tester"
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['system-one:80']
+  restartPolicy: Never
+MANIFEST:
+---
+# Source: hello-world/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: system-one
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: hello-world/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: system-one
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+---
+# Source: hello-world/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-one
+  labels:
+    helm.sh/chart: hello-world-0.1.0
+    app.kubernetes.io/name: sys1
+    app.kubernetes.io/instance: pre-alpha
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sys1
+      app.kubernetes.io/instance: pre-alpha
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sys1
+        app.kubernetes.io/instance: pre-alpha
+    spec:
+      serviceAccountName: system-one
+      securityContext:
+        {}
+      containers:
+        - name: hello-world
+          securityContext:
+            {}
+          image: "nginx:1.0.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
+
+NOTES:
+1. Get the application URL by running these commands:
+  export NODE_PORT=$(kubectl get --namespace hello-world-ns -o jsonpath="{.spec.ports[0].nodePort}" services system-one)
+  export NODE_IP=$(kubectl get nodes --namespace hello-world-ns -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo http://$NODE_IP:$NODE_PORT
