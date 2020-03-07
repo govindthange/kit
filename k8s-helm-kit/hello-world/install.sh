@@ -21,28 +21,29 @@ echo "https://console.cloud.google.com/kubernetes/workload?project=$PROJECT_ID"
 helm install $RELEASE_NAME ./$APP_NAME
 
 nodePort=$(kubectl get svc -o jsonpath='{.items[*].spec.ports[0].nodePort}')
-echo "Port number allocated in cluster node for accessing service: $nodePort"
+echo "Note: Port $nodePort is allocated in all cluster nodes for accessing the $APP_NAME service."
+read -p "Hit [Enter] to continue..."
 
 firewallRule=$(gcloud compute firewall-rules list --format=value\(name\) --filter=name=sys1-svc-rule)
-echo "Firewall Rule Name: $firewallRule"
+echo "Note: Checking firewall rule with name '$firewallRule'"
+read -p "Hit [Enter] to continue..."
 
 if [ "$firewallRule" = "sys1-svc-rule" ]; then
-	echo "Firewall rule found! Updating rule for port $nodePort"
-	read -p "Press [Enter] to execute next command."
+	echo "Note: Firewall rule already exists! Updating this rule to allow traffic from port $nodePort."
+	read -p "Hit [Enter] to continue..."
 	$(gcloud compute firewall-rules update sys1-svc-rule --allow=tcp:$nodePort)
 else
-	echo "Creating firewall rule for port $nodePort"
-	read -p "Press [Enter] to execute next command."
+	echo "Note: Creating a new firewall rule to allow traffic from port $nodePort."
+	read -p "Hit [Enter] to continue..."
 	$(gcloud compute firewall-rules create sys1-svc-rule --allow=tcp:$nodePort)
 fi
 
-read -p "Press [Enter] to execute next command."
-kubectl get nodes -o wide
+# kubectl get nodes -o wide
+externalIp=$(kubectl get node -o jsonpath='{$.items[*].status.addresses[?(@.type=="ExternalIP")].address}')
+echo "Note: External IP is $externalIp"
 
-echo "Use the EXTERNAL-IP to curl like so:"
-echo "curl http://<EXTERNAL-IP>:$nodePort"
-
-read -p "Press [Enter] key to exit..."
+echo "Application URL: http://$externalIp:$nodePort"
+read -p "Press [Enter] key to exit."
 
 #if [ 1 -eq 0 ]; then
 #fi
