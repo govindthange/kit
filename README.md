@@ -36,7 +36,7 @@ Hello World is a sample app to test the concept of **deploying** a full blown mi
       You can see what you deployed using following commands:
       ```
     E:\kicks\k8s-helm-kit\hello-world>helm ls --all
-    NAME            NAMESPACE       REVISION        UPDATED 				    STATUS      CHART               APP VERSION
+    NAME            NAMESPACE       REVISION        UPDATED 				STATUS      CHART               APP VERSION
     pre-alpha       hello-world-ns  1               2020-03-07 10:29:05.0167733 +0530 IST   deployed    hello-world-0.1.0   1.0.0
     
     E:\kicks\k8s-helm-kit\hello-world>kubectl get svc
