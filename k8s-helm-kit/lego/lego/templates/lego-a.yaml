@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.lego.a.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.lego.a.name }}
+    app.kubernetes.io/name: {{ .Release.Name }}
+    version: {{ .Chart.Version }}
+spec:
+  replicas: {{ .Values.lego.a.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.lego.a.name }}
+  template:
+    metadata:
+      name: {{ .Values.lego.a.name }}-po
+      namespace: {{ .Values.namespace }}
+      labels:
+        app: {{ .Values.lego.a.name }}
+    spec:
+      containers:
+      - name: {{ .Values.lego.a.name }}
+        image: {{ .Values.lego.a.image }}:{{ .Values.lego.a.tag }}
+        imagePullPolicy: {{ .Values.lego.a.pullPolicy }}
+        command: ["node", "./app.js", "{{ .Values.lego.a.serverPort }}", "{{ .Values.lego.a.name }}", "describe"]
+        ports:
+          - containerPort: {{ .Values.lego.a.serverPort }}
+            name: {{ .Values.lego.a.name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.lego.a.name }}-svc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Release.Name }}
+    version: {{ .Chart.Version }}
+spec:
+  selector:
+    app: {{ .Values.lego.a.name }}
+  ports:
+    - name: http
+      port: {{ .Values.lego.a.servicePort }}
+      targetPort: {{ .Values.lego.a.serverPort }}
+      protocol: TCP
+  type: ClusterIP # Internal

@@ -2,6 +2,25 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+
+lego:
+  a:
+    name: lego-a
+    serverPort: 8080
+    servicePort: 80
+    image: thange/whoami
+    tag: 4fe9413
+    replicaCount: 1
+    pullPolicy: Always
+  b:
+    name: lego-b
+    serverPort: 8080
+    servicePort: 80
+    image: thange/whoami
+    tag: 4fe9413
+    replicaCount: 2
+    pullPolicy: Always	
+
 replicaCount: 1
 
 image:
