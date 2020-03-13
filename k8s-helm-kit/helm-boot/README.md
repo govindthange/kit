@@ -16,7 +16,7 @@ Helm Boot is a simple application to test the idea of **deploying** a microservi
 	```
       ![Output](https://github.com/govindthange/kicks/blob/master/k8s-helm-kit/helm-boot/images/deploy-sh-ouput-alpha.png)
 
-	  If every thing goes well you will be shown an application URL in the end; use that URL to test your application. (http://[external-ip]:[node-port]/)
+	  If every thing goes well you will be shown an application URL in the end; use that URL to test your application. (http://[node-ip]:[node-port]/)
 
       You can also verify your deployment using following commands:
       ```
