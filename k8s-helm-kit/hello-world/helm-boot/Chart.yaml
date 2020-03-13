@@ -1,6 +1,6 @@
 apiVersion: v2
-name: hello-world
-description: Hello World is a helm chart to demonstrate multi-service app deployment on k8s cluster.
+name: helm-boot
+description: Kube Boot is a helm chart to demonstrate multi-service app deployment on k8s cluster using a single script.
 
 # A chart can be either an 'application' or a 'library' chart.
 #

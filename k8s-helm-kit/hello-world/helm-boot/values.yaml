@@ -1,4 +1,4 @@
-# Default values for hello-world.
+# Default values for helm-boot.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -9,8 +9,8 @@ image:
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
-nameOverride: "sys1"
-fullnameOverride: "system-one"
+nameOverride: "helm-boot"
+fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created

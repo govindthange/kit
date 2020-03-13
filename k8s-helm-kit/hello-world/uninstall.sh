@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 PROJECT_ID=my-kubernetes-project-268407
-APP_NAME=hello-world
-RELEASE_NAME=pre-alpha
+APP_NAME=helm-boot
+RELEASE_NAME=alpha
 CLUSTER_NAME=$APP_NAME-gke
 CLUSTER_REGION=asia-south1-a
 NAMESPACE=$APP_NAME-ns
