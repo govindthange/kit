@@ -3,22 +3,22 @@
 Helm Boot is a simple application to test the idea of **deploying** a microservice styled application on a k8s cluster **through a single script**.
 
  1. Create a new project in the Google Cloud Platform Console.
- 2. Copy the project-code
- 3. Download or clone https://github.com/govindthange/kicks
- 4. Got to ./k8s-helm-kit/helm-boot
- 5. Replace PROJECT_ID with the proejct-code you copied above in deploy.sh and undeploy.sh files.
+ 2. Copy the project-code for later.
+ 3. Do a Git clone of https://github.com/govindthange/kicks
+ 4. Go to ./k8s-helm-kit/helm-boot
+ 5. Edit deploy.sh and undeploy.sh files to set PROJECT_ID field to the proejct-code value you copied above.
 	```
 		PROJECT_ID=my-kubernetes-project-268407
 	```
- 6. Run the following script to deploy.
+ 6. Run the following script:
 	```sh
 		$ deploy.sh
 	```
       ![Output](https://github.com/govindthange/kicks/blob/master/k8s-helm-kit/helm-boot/images/deploy-sh-ouput-alpha.png)
 
-	  If every thing goes well you will be shown an application URL towards the end; copy that to test your application. (http://[external-ip]:[node-port]/)
+	  If every thing goes well you will be shown an application URL in the end; use that URL to test your application. (http://[external-ip]:[node-port]/)
 
-      You can see what you deployed using following commands:
+      You can also verify your deployment using following commands:
       ```
 	E:\kicks\k8s-helm-kit\helm-boot\images>helm ls --all
 	NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
