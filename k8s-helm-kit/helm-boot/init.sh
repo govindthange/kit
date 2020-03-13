@@ -2,7 +2,7 @@
 
 # Configure application information
 PROJECT_ID=my-kubernetes-project-268407
-APP_NAME=hello-world
+APP_NAME=helm-boot
 CLUSTER_NAME=$APP_NAME-gke
 CLUSTER_REGION=asia-south1-a
 NAMESPACE=$APP_NAME-ns

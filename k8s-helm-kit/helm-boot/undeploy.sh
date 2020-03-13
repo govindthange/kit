@@ -2,8 +2,8 @@
 
 # Specify application information
 PROJECT_ID=my-kubernetes-project-268407
-APP_NAME=hello-world
-RELEASE_NAME=pre-alpha
+APP_NAME=helm-boot
+RELEASE_NAME=alpha
 NAMESPACE=$APP_NAME-ns
 
 # Specify cluster information

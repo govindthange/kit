@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "hello-world.fullname" . }} Tester"
+  name: "{{ include "helm-boot.fullname" . }} Tester"
   labels:
-    {{- include "hello-world.labels" . | nindent 4 }}
+    {{- include "helm-boot.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "hello-world.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "helm-boot.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

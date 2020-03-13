@@ -2,8 +2,8 @@
 
 # Specify application information
 PROJECT_ID=my-kubernetes-project-268407
-APP_NAME=hello-world
-RELEASE_NAME=pre-alpha
+APP_NAME=helm-boot
+RELEASE_NAME=alpha
 NAMESPACE=$APP_NAME-ns
 
 # Specify cluster information
@@ -42,25 +42,25 @@ echo "You are ready to read firewall rules."
 read -p "[Hit enter to continue]"
 
 # Setup firewall rules to allow traffic through node ports.
-firewallRule=$(gcloud compute firewall-rules list --format=value\(name\) --filter=name=sys1-svc-rule)
+firewallRule=$(gcloud compute firewall-rules list --format=value\(name\) --filter=name=helm-boot-svc-rule)
 echo "You are ready to verify '$firewallRule' for network traffic."
 read -p "[Hit enter to continue]"
 
-if [ "$firewallRule" = "sys1-svc-rule" ]; then
+if [ "$firewallRule" = "helm-boot-svc-rule" ]; then
 	echo "Rule found. You are ready to update this rule to allow traffic from port $nodePort."
 	read -p "[Hit enter to continue]"
-	$(gcloud compute firewall-rules update sys1-svc-rule --allow=tcp:$nodePort)
+	$(gcloud compute firewall-rules update helm-boot-svc-rule --allow=tcp:$nodePort)
 else
 	echo "Rule not found! You are ready to create '$firewallRule' to allow traffic from port $nodePort."
 	read -p "[Hit enter to continue]"
-	$(gcloud compute firewall-rules create sys1-svc-rule --allow=tcp:$nodePort)
+	$(gcloud compute firewall-rules create helm-boot-svc-rule --allow=tcp:$nodePort)
 fi
 
 # Obtain the external IP
 externalIp=$(kubectl get node -o jsonpath='{$.items[*].status.addresses[?(@.type=="ExternalIP")].address}')
 echo "Note: External IP is $externalIp"
 
-# Create a test link and 
+# Create a test link and
 echo "Application URL: http://$externalIp:$nodePort"
 read -p "[Hit enter to exit]"
 

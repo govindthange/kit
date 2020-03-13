@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "hello-world.fullname" . }}
+  name: {{ include "helm-boot.fullname" . }}
   labels:
-    {{- include "hello-world.labels" . | nindent 4 }}
+    {{- include "helm-boot.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "hello-world.selectorLabels" . | nindent 6 }}
+      {{- include "helm-boot.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "hello-world.selectorLabels" . | nindent 8 }}
+        {{- include "helm-boot.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "hello-world.serviceAccountName" . }}
+      serviceAccountName: {{ include "helm-boot.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
