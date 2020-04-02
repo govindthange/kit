@@ -12,3 +12,7 @@ Kubernetes Helm Kit is a starter kit which focuses on various aspects of using *
 ## helm-boot system
 
 Helm Boot is a simple application to test the idea of **deploying** a microservice styled application on a k8s cluster **through a single script**.
+
+## Lego
+
+Lego is a microservice styled distributed systems to demonstrate various flavors of inter-service communication in a clustered environment.
