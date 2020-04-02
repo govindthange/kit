@@ -15,4 +15,4 @@ Helm Boot is a simple application to test the idea of **deploying** a microservi
 
 ## Lego
 
-Lego is a microservice styled distributed systems to demonstrate various flavors of inter-service communication in a clustered environment.
+Lego is a microservice styled distributed system to demonstrate various flavors of inter-service communication in a clustered environment.
