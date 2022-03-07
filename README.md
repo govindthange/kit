@@ -1,6 +1,6 @@
-# Kicks
+# Kit
 
-Kicks is the code name for a collection of proof of concepts, samples and starter kits for entry level projects on new platforms, technologies and frameworks.
+Kit is the code name for a collection of starter templates for projects on new platforms, technologies and frameworks.
 
 ## k8s-helm-kit
 
