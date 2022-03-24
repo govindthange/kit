@@ -41,3 +41,12 @@
 12. Hit `Build Now` button.
 13. Go to `Build History` at the bottom and select the build # menu `Console Output`.
 14. Verify logs.
+
+
+# Quick Changes / Troubleshooting
+
+1. Go to the project.
+2. Go to `Build History` at the bottom and click on the build #.
+3. Hit the `Replay` button on the left side menus.
+4. Edit the script.
+5. Hit `Run` button.
