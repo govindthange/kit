@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage("clean") {
+            steps {
+                echo 'Cleaning the project workspace...'
+            }
+        }
+        stage("build") {
+            steps {
+                sh 'echo "Building the application..."'
+            }
+        }
+        stage("test") {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage("deploy") {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
