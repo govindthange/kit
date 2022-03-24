@@ -65,9 +65,11 @@ govind@thinkpad-p15:~/poc$ docker run -p 8080:8080 -p 50000:50000 -v /home/govin
 2. Select `Manage Jenkins`.
 3. Select `Manage Plugins`.
 4. Go to `Available` tab.
-5. Select `Maven Integration plugin 3.18`.
-6. Select `Oracle Java SE Development Kit Installer Plugin 1.5`.
-7. Hit `Install without restart` button.
+5. Select `Maven Integration plugin 3.18` to package java projects.
+6. Select `Oracle Java SE Development Kit Installer Plugin 1.5` to compile java projects.
+7. Select `NodeJS 1.5.1` to install NPM plugin.
+8. Select `Build Pipeline 1.5.8` to connect jobs.
+9. Hit `Install without restart` button.
 
 # Configure Global Tools
 

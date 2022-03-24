@@ -1,4 +1,4 @@
-# Jenkins Multiline Pipeline (v2.339)
+# Jenkins Pipeline (v2.339)
 
 1. Go to jenkins dashboard.
 2. Click on `New Item`.
