@@ -1,5 +1,7 @@
 # Connecting namespaces and reaching the outside networks
 
+Perform following steps to setup communication between namespaces and outside networks by means of a default gateway, NAT, and port forwarding rules.
+
 1. Setup environment with `$ ./setup.sh`
 2. Test with `$ ./test.sh`
 3. Clean all changes with `$ ./clean.sh`

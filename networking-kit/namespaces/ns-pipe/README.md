@@ -1,5 +1,6 @@
 # Connecting 2 namespaces via pipe
 
+A virtual interface (AKA pipe) provide a virtualized representation of a physical network interface.
 
 ## Step 1.  Create namespaces
 

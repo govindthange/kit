@@ -1,5 +1,6 @@
 # Connecting multiple namespaces via bridge/vSwitch
 
+The bridge gives us the virtual equivalent of a switch.
 
 ## Step 1. Setup a bridge/vSwitch
 
