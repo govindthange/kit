@@ -2,7 +2,7 @@
 
 # Step 1. Setup a bridge/vSwitch
 sudo ip link add colorful-bridge type bridge
-sudo ip addr add 192.168.15.1/24 dev colorful-bridge
+sudo ip addr add 192.168.15.1/24 brd + dev colorful-bridge
 sudo ip link set dev colorful-bridge up
 
 # Step 2. Create namespaces
