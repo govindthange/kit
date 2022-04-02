@@ -265,3 +265,12 @@ govind@thinkpad-p15:~$ sudo ip netns del blue-ns
 govind@thinkpad-p15:~$ sudo ip netns del orange-ns
 govind@thinkpad-p15:~$ sudo ip netns del green-ns
 ```
+
+
+---
+
+# Test
+
+1. Setup environment with `$ ./setup.sh`
+2. Test the environment with `$ ./test.sh`
+3. Clean all changes with `$ ./clean.sh`

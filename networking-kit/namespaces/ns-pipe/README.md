@@ -215,3 +215,12 @@ Finally delete both the namespaces.
 govind@thinkpad-p15:~$ sudo ip netns del red-ns
 govind@thinkpad-p15:~$ sudo ip netns del blue-ns
 ```
+
+
+---
+
+# Test
+
+1. Setup environment with `$ ./setup.sh`
+2. Test with `$ ./test.sh`
+3. Clean all changes with `$ ./clean.sh`
