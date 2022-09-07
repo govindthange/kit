@@ -1,0 +1,33 @@
+version: '3'
+services:
+  template-app:
+    container_name: template-app
+    build:
+      context: ./template-app
+      dockerfile: .devcontainer/Dockerfile
+    links:
+      - template-service1
+      - template-service2
+    environment:
+      - SERVICE_HOST=template-service1
+      - SERVICE_PORT=9999
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    # Without following command Visual Studio Code fails in launching the remote container!
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  template-service1:
+    container_name: template-service1
+    image: thange/whoami:latest
+    ports:
+      - 8888:9999 # Access http://localhost:8888/ from the host machine (outside docker) via browser.
+
+  template-service2:
+    container_name: template-service2
+    build:
+      context: ./template-service2
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"

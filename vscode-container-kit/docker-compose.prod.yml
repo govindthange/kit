@@ -1,0 +1,18 @@
+version: '3'
+services:
+  template-app:
+    container_name: production-app
+    volumes:
+      - ~:~/local-home-folder:cached # Additional bind mount
+    # ...
+  template-service1:
+    container_name: production-service1
+    volumes:
+      - ~:~/local-home-folder:cached # Additional bind mount
+    # ...
+
+  template-service2:
+    container_name: production-service2
+    volumes:
+      - ~/some-folder:~/some-folder:cached # Additional bind mount
+    # ...
