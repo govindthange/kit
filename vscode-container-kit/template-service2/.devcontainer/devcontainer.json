@@ -1,0 +1,8 @@
+{
+  "name": "Template Service 2",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "template-service2",
+  "shutdownAction": "none",
+  "extensions": ["dbaeumer.vscode-eslint"],
+  "workspaceFolder": "/workspace/template-service2/src"
+}

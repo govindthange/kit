@@ -1,0 +1,8 @@
+{
+  "name": "Template Service 1",
+  "dockerComposeFile": ["../../docker-compose.yml"],
+  "service": "template-service1",
+  "shutdownAction": "none",
+  "extensions": ["golang.go"],
+  "workspaceFolder": "/workspace/template-service1/src"
+}
