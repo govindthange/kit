@@ -1,8 +1,8 @@
 # Truffle Kit
 
-It is time consuming to setup a develop enveronment for an Ethereum based DApp where you need Node JS & Truffle Suite installed while having a private blockchain running.
+Its a time consuming process to setup an integrated development environment for building DApps on an Ethereum platform.
 
-`Truffle Kit` attempts to solve this problem by using `VS Code Remote Plugin` along with devcontainer.json file to setup a development workspace using multiple docker containers to separately host Node JS, Truffle Suite Framework, and Ganache-CLI.
+`Truffle Kit` attempts to solve this problem by using `VS Code Remote Plugin` and sets up an integrated workspace by launching separate containers for Node JS, Truffle Suite Framework, and Ganache-CLI.
 
 ## Setup Workspace
 
