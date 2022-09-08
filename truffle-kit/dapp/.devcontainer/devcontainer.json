@@ -1,0 +1,32 @@
+{
+	"name": "Decentralized Application",
+	"service": "dapp",
+	"shutdownAction": "none",
+
+	"dockerComposeFile": [
+		"../../docker-compose.yml"
+		// Uncomment the following two lines to execute the application in integrated mode.
+		//, "../../docker-compose.prod.yml"
+	],
+
+	// Open the sub-folder with the source code
+	"workspaceFolder": "/workspace/dapp/src",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  dapp:
+    container_name: dapp
+    build:
+      context: ./dapp
+      dockerfile: .devcontainer/Dockerfile
+    links:
+      - blockchain
+    environment:
+      - BLOCKCHAIN_HOST=local-blockchain
+      - BLOCKCHAIN_PORT=8545
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    # Without following command Visual Studio Code fails in launching the remote container!
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  blockchain:
+    container_name: blockchain
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - 8545:8545
