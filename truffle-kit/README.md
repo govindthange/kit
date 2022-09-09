@@ -1,12 +1,14 @@
 # Truffle Kit
 
-Its a time consuming process to setup an integrated development environment for building DApps on an Ethereum platform.
+`Truffle Kit` is workspace template which bundles Truffle Suite with Node JS, Ganache-CLI, and React JS library.
 
-`Truffle Kit` attempts to solve this problem by using `VS Code Remote Plugin` and sets up an integrated workspace by launching separate containers for Node JS, Truffle Suite Framework, and Ganache-CLI.
+`Truffle Suite` is best suited for building ethereum based DApps. It is a node runtime-based framework that can help implement DevOps, CI/CD, and continuous deployment with ease. But setting up `Truffle` as a standalone piece is not enough and it is very time consuming to correctly set it up along side Geth, Ganache-CLI, React, and other components.
+
+`Truffle Kit` attempts to solve this problem by using `VS Code Remote Plugin` and sets up a fully integrated workspace that can launch separate containers for Truffle Suite Framework, Ganache-CLI, Geth etc.
 
 ## Setup Workspace
 
-1. Copy truffle-kit folder.
+1. Copy `truffle-kit` folder.
 2. Launch the Visual Studio Code with Remote Container like so:
 
 ```
@@ -18,7 +20,7 @@ govind@thinkpad:~/poc/truffle-kit/dapp$ code .
 
 ## Cleanup Workspace
 
-1. Go to [truffle-kit] folder
+1. Go to `truffle-kit` folder
 2. Execute following command to remove all containers launched by the Visual Studio Code.
 
 ```
