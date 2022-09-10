@@ -10,7 +10,7 @@
 	],
 
 	// Open the sub-folder with the source code
-	"workspaceFolder": "/workspace/dapp/src",
+	"workspaceFolder": "/workspace/dapp",
 
 	// Configure tool-specific properties.
 	"customizations": {
