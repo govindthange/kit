@@ -1,6 +1,6 @@
 # Truffle Kit
 
-`Truffle Kit` is workspace template which bundles Truffle Suite with Node JS, Ganache-CLI, and React JS library.
+`Truffle Kit` is an ethereum app development workspace template that bundles Truffle Suite with Node JS, Ganache-CLI, and React JS library.
 
 `Truffle Suite` is best suited for building ethereum based DApps. It is a node runtime-based framework that can help implement DevOps, CI/CD, and continuous deployment with ease. But setting up `Truffle` as a standalone piece is not enough and it is very time consuming to correctly set it up along side Geth, Ganache-CLI, React, and other components.
 
