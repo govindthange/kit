@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web-app:
+    build:
+      context: ./web-app
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      - TEST_HOST=host.docker.internal
+      - TEST_PORT=9999
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"

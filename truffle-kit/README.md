@@ -24,6 +24,6 @@ govind@thinkpad:~/poc/truffle-kit/dapp$ code .
 2. Execute following command to remove all containers launched by the Visual Studio Code.
 
 ```
-govind@thinkpad:~/poc/truffle-kit$ docker-compose -f ./docker-compose.yml down
+govind@thinkpad:~/poc/truffle-kit$ docker-compose -f docker-compose-web-app.yml -f docker-compose-dapp.yml -f docker-compose.yml down
 
 ```
