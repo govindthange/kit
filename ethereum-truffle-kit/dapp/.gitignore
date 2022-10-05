@@ -1,0 +1,5 @@
+# exclude all ABI artifacts
+abis/*
+
+# exception all ABI artifacts but the folder
+!abis/.gitkeep
