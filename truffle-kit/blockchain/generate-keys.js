@@ -1,7 +1,7 @@
 const wallet = require('ethereumjs-wallet');
 var fs = require('fs');
 
-var stream = fs.createWriteStream("../secret.csv");
+var stream = fs.createWriteStream("./sample-keys.csv");
 
 stream.once('open', function(fd) {
     stream.write(`#,private-key,address\n`)
