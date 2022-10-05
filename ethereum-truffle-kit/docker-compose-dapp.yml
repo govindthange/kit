@@ -1,0 +1,13 @@
+version: "3"
+services:
+  dapp:
+    build:
+      context: ./dapp
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      - BLOCKCHAIN_HOST=host.docker.internal
+      - BLOCKCHAIN_PORT=8545
+      - TEST_PORT=9999
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
