@@ -10,7 +10,8 @@
 ## Setup Workspace
 
 1. Copy `ethereum-truffle-kit` folder.
-2. Launch the Visual Studio Code with Remote Container like so:
+2. Open `.env` and set `APP_NAME` to the application name you desire.
+3. Launch the Visual Studio Code with Remote Container like so:
 
 ```
 govind@thinkpad:~/poc/ethereum-truffle-kit$ cd web-app/
