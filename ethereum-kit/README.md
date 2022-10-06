@@ -5,7 +5,8 @@
 ## Setup Workspace
 
 1. Copy `ethereum-kit` folder.
-2. Launch the Visual Studio Code with Remote Container like so:
+2. Open `.env` and set `APP_NAME` to the application name you desire.
+3. Launch the Visual Studio Code with Remote Container like so:
 
 ```
 govind@thinkpad:~/poc/ethereum-kit$ cd web-app/
@@ -20,6 +21,6 @@ govind@thinkpad:~/poc/ethereum-kit/web-app$ code .
 2. Execute following command to remove all containers launched by the Visual Studio Code.
 
 ```
-govind@thinkpad:~/poc/ethereum-kit$ docker-compose -f docker-compose-web-app.yml -f docker-compose-dapp.yml -f docker-compose.yml down
+govind@thinkpad:~/poc/ethereum-kit$ ./clean.sh
 
 ```

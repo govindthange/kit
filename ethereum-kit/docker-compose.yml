@@ -1,11 +1,11 @@
 version: "3"
 services:
   dapp:
-    container_name: dapp
+    container_name: ${APP_NAME}
     links:
       - blockchain
     environment:
-      - BLOCKCHAIN_HOST=blockchain
+      - BLOCKCHAIN_HOST= ${APP_NAME}-blockchain
       - BLOCKCHAIN_PORT=8545
       - TEST_PORT=9999
 
@@ -13,7 +13,7 @@ services:
     container_name: blockchain
     image: trufflesuite/ganache-cli:latest
     ports:
-      - 8545:8545
+      - ${BLOCKCHAIN_PORT}:8545
     volumes:
       # Specify a relative path and let engine create a volume
       - ./blockchain/database:/blockchain/database
