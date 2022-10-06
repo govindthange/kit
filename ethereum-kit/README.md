@@ -13,7 +13,7 @@ govind@thinkpad:~/poc/ethereum-kit$ cd web-app/
 govind@thinkpad:~/poc/ethereum-kit/web-app$ code .
 ```
 
-3. Open terminal in the dapp container
+3. Open terminal in the web-app container
 
 ## Cleanup Workspace
 
