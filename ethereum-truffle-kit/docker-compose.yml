@@ -4,6 +4,7 @@ services:
     container_name: ${APP_NAME}
     links:
       - blockchain
+      - ipfs
     environment:
       - BLOCKCHAIN_HOST=blockchain
       - BLOCKCHAIN_PORT=8545
@@ -28,6 +29,18 @@ services:
       --account='0xac22c2fa4124f28589dd2744e7918e321773d568529540ff3dee03bf3b75e17f,50000000000000000000'
       --account='0x1b2ee170ca73c8ae9d5d3d426e861762df18317ce4c7b27aba052e4876f403e7,60000000000000000000'
       --account='0xcf6673025760a50b5ab86aeb0cd1c7799865fb67dd34a937f03a678ea8813f73,10000000000000000000'
+
+  ipfs:
+    container_name: ${APP_NAME}-ipfs
+    image: ipfs/go-ipfs:latest
+    ports:
+      - ${IPFS_SWARM_PORT}:4001
+      - ${IPFS_LOCAL_API_PORT}:5001
+      - ${IPFS_HTTP_GATEWAY_PORT}:8080
+    volumes:
+      - ./ipfs/export:/ipfs/export
+      - ./ipfs/data:/ipfs/data
+    # command: ipfs init
 
   web-app:
     container_name: ${APP_NAME}-client
