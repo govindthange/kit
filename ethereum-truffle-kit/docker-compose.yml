@@ -40,9 +40,8 @@ services:
     volumes:
       - ./ipfs/export:/ipfs/export
       - ./ipfs/data:/ipfs/data
-    # command: ipfs init
 
-  web-app:
+  client:
     container_name: ${APP_NAME}-client
     links:
       - dapp

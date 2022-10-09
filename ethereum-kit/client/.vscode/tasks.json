@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "dotnet build ${workspaceFolder}/web-app.csproj",
+            "command": "dotnet build ${workspaceFolder}/client.csproj",
             "type": "shell",
             "args": [],
         },
@@ -13,7 +13,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/web-app.csproj"
+                "${workspaceFolder}/client.csproj"
             ],
         },
         {
@@ -23,7 +23,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/web-app.csproj"
+                "${workspaceFolder}/client.csproj"
             ],
         }
     ]

@@ -1,8 +1,8 @@
 version: "3"
 services:
-  web-app:
+  client:
     build:
-      context: ./web-app
+      context: ./client
       dockerfile: .devcontainer/Dockerfile
     environment:
       - TEST_HOST=host.docker.internal

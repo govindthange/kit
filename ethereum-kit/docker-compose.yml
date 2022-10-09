@@ -11,7 +11,7 @@ services:
       - TEST_PORT=9999
 
   blockchain:
-    container_name: blockchain
+    container_name: ${APP_NAME}-blockchain
     image: trufflesuite/ganache-cli:latest
     ports:
       - ${BLOCKCHAIN_PORT}:8545
@@ -41,8 +41,8 @@ services:
       - ./ipfs/export:/ipfs/export
       - ./ipfs/data:/ipfs/data
 
-  web-app:
-    container_name: web-app
+  client:
+    container_name: ${APP_NAME}-client
     links:
       - dapp
     environment:

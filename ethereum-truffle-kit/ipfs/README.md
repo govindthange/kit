@@ -9,7 +9,7 @@ Use `docker container ls` to list all containers.
 ```
 govind@thinkpad:~$ docker container ls --format "table {{.ID}}\t{{.Image}}\t{{.Names}}"
 CONTAINER ID   IMAGE                             NAMES
-e8861270cf84   ethereum-truffle-kit_web-app      dapp-client
+e8861270cf84   ethereum-truffle-kit_client      dapp-client
 3ebd8cba097a   ethereum-truffle-kit_dapp         dapp
 1eeeab327e73   ipfs/go-ipfs:latest               dapp-ipfs
 5b526f3fa04a   trufflesuite/ganache-cli:latest   dapp-blockchain

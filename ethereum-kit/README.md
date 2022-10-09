@@ -1,6 +1,6 @@
 # Ethereum Kit
 
-`Ethereum Kit` is a fullstack dapp workspace template for ethereum platform. When launched via VS Code the kit creates 3 independent containers for hosting a web-app, a dapp, and a blockchain node and links them together.
+`Ethereum Kit` is a fullstack dapp workspace template for ethereum platform. When launched via VS Code the kit creates 3 independent containers for hosting a client, a dapp, and a blockchain node and links them together.
 
 ## Setup Workspace
 
@@ -9,11 +9,11 @@
 3. Launch the Visual Studio Code with Remote Container like so:
 
 ```
-govind@thinkpad:~/poc/ethereum-kit$ cd web-app/
-govind@thinkpad:~/poc/ethereum-kit/web-app$ code .
+govind@thinkpad:~/poc/ethereum-kit$ cd client/
+govind@thinkpad:~/poc/ethereum-kit/client$ code .
 ```
 
-3. Open terminal in the web-app container
+3. Open terminal in the client container
 
 ## Cleanup Workspace
 
