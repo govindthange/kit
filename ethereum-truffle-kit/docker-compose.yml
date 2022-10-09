@@ -9,6 +9,8 @@ services:
       - BLOCKCHAIN_HOST=blockchain
       - BLOCKCHAIN_PORT=8545
       - TEST_PORT=9999
+    volumes:
+      - ./client/src/contracts:/workspace/dapp/abis
 
   blockchain:
     container_name: ${APP_NAME}-blockchain
@@ -48,3 +50,5 @@ services:
     environment:
       - TEST_HOST=dapp
       - TEST_PORT=9999
+    volumes:
+      - ./client/src/contracts:/workspace/client/src/contracts
