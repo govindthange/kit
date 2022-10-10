@@ -93,6 +93,38 @@
     webpack compiled successfully
     ```
 10. Your react client development environment is ready!
+11. Run following command on terminal to install redux.
+    ```
+    node ➜ /workspace/client (master ✗) $ npm install react-redux@8.0.4 redux@4.2.0 --save
+
+    added 7 packages, and audited 1460 packages in 3s
+
+    209 packages are looking for funding
+    run `npm fund` for details
+
+    6 high severity vulnerabilities
+
+    To address all issues (including breaking changes), run:
+    npm audit fix --force
+
+    Run `npm audit` for details.
+    ```
+12. Run following command on the terminal to integrate redux-toolkit:
+    ```
+    node ➜ /workspace/client (master ✗) $ npm install @reduxjs/toolkit@1.8.6 --save
+
+    added 560 packages, removed 1009 packages, changed 353 packages, and audited 1453 packages in 13s
+
+    209 packages are looking for funding
+    run `npm fund` for details
+
+    6 high severity vulnerabilities
+
+    To address all issues (including breaking changes), run:
+    npm audit fix --force
+
+    Run `npm audit` for details.
+    ```
 
 ## Cleanup Workspace
 

@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useSelector } from "react-redux";
+import Auth from "./components/Auth";
+import Home from "./components/Home";
 
 function App() {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  const defaultLayout = <div>Login...</div>
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Start writing code using
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/govindthange/dapp-studio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ethereum DApp Studio
-        </a>
-      </header>
-    </div>
+    <>
+      { !isLoggedIn && <Auth /> }
+      { isLoggedIn && <Home /> }
+    </>
   );
 }
 

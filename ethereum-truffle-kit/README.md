@@ -11,14 +11,29 @@
 
 1. Copy `ethereum-truffle-kit` folder.
 2. Open `.env` and set `APP_NAME` to the application name you desire.
-3. Launch the Visual Studio Code with Remote Container like so:
+3. Launch the Visual Studio Code like so:
 
 ```
 govind@thinkpad:~/poc/ethereum-truffle-kit$ cd client/
 govind@thinkpad:~/poc/ethereum-truffle-kit/client$ code .
 ```
 
-3. Open terminal in the client container
+4. Open the terminal in the client container
+5. Run the `npm start` command to launch the react development server.
+
+   ```
+   Compiled successfully!
+   
+   You can now view client in the browser.
+   
+   Local:            http://localhost:3000
+   On Your Network:  http://172.23.0.5:3000
+   
+   Note that the development build is not optimized.
+   To create a production build, use npm run build.
+   
+   webpack compiled successfully
+   ```
 
 ## Cleanup Workspace
 
