@@ -21,10 +21,19 @@ const authSlice = createSlice({
         },
         logout: (mutableState, action) => {
             mutableState.isLoggedIn = false;
+
+            // NOTE:
+            // Generally we will mutate/update the passed state and leave
+            // rest to the Immer to ensure the main state gets updated.
+            // But if we return any thing from this function it will
+            // become the new state!
+            // return { a: some-thing-a, b: some-thing-b}
         }
     }
 });
 
+// Note that we didn't setup action-creator manually!
+// We actually setup a function that automatically returns it.
 export const { login, logout } = authSlice.actions;
 
 // Create a state selector in the slice for data points
