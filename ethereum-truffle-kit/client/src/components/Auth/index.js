@@ -1,6 +1,6 @@
 import "./index.css"
 import { useDispatch } from "react-redux";
-import { authActions } from "./auth-slice";
+import { login } from "./auth-slice";
 
 const Auth = () => {
 
@@ -8,7 +8,7 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(authActions.login());
+        dispatch(login());
     };
 
     return (
