@@ -1,6 +1,6 @@
 import './index.css';
 import logo from './logo.svg';
-import Header from '../../features/Header';
+import Header from '../header/index';
 import DummyAsyncData from '../../features/dummy-async-data';
 import ModalDialog from '../../features/dummy-async-data/components/ModalDialog';
 import {useEffect} from 'react';
