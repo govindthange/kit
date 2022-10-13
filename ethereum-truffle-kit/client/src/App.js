@@ -1,15 +1,15 @@
 import './App.css';
 import {useSelector} from 'react-redux';
-import Auth from './features/Auth';
+import Login from './features/authentication/components/Login';
 import Home from './layouts/home';
-import {hasLoggedIn} from './features/Auth/auth-slice';
+import {hasLoggedIn} from './features/authentication/authenticationSlice';
 
 function App() {
   const isLoggedIn = useSelector(hasLoggedIn);
 
   return (
     <>
-      {!isLoggedIn && <Auth />}
+      {!isLoggedIn && <Login />}
       {isLoggedIn && <Home />}
     </>
   );

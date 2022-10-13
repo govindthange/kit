@@ -1,6 +1,6 @@
 import './index.css';
 import {useDispatch} from 'react-redux';
-import {logout} from '../../features/Auth/auth-slice';
+import {logout} from '../../features/authentication/authenticationSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
