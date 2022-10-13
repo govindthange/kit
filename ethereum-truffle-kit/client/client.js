@@ -1,23 +1,23 @@
-const http = require("http");
+const http = require('http');
 
 const options = {
   hostname: process.env.TEST_HOST,
   port: process.env.TEST_PORT,
-  path: "/",
-  method: "GET",
+  path: '/',
+  method: 'GET'
 };
 
-console.log("Service Configuration: ", options);
+console.log('Service Configuration: ', options);
 
-const request = http.request(options, (response) => {
+const request = http.request(options, response => {
   console.log(`statusCode: ${response.statusCode}`);
 
-  response.on("data", (d) => {
+  response.on('data', d => {
     process.stdout.write(d);
   });
 });
 
-request.on("error", (error) => {
+request.on('error', error => {
   console.error(error);
 });
 

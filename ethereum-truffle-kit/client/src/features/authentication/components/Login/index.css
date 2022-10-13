@@ -1,7 +1,7 @@
 .login-btn {
-    padding: 10px;
-    border: none;
+  padding: 10px;
+  border: none;
 }
-.login-btn:hover{
-    background: lightgray;
+.login-btn:hover {
+  background: lightgray;
 }

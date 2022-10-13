@@ -1,25 +1,25 @@
 .dummy-async-data {
-    font-size: small;
-    color: darkolivegreen;
+  font-size: small;
+  color: darkolivegreen;
 }
 
 .dummy-async-data h3 {
-    color: gray;
+  color: gray;
 }
 
 .dummy-async-data .dummy-seq {
-    text-align: left;
-    display: inline-block;
-    width: 1.75rem;
+  text-align: left;
+  display: inline-block;
+  width: 1.75rem;
 }
 
 .dummy-async-data .dummy-title {
-    text-align: left;
-    color: gray;
-    display: inline-block;
-    width: 12rem;
+  text-align: left;
+  color: gray;
+  display: inline-block;
+  width: 12rem;
 }
 
 .dummy-async-data .dummy-time {
-    text-align: right;
+  text-align: right;
 }

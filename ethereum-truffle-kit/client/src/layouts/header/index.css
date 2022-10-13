@@ -1,7 +1,7 @@
 .logout-btn {
-    padding: 10px;
-    border: none;
+  padding: 10px;
+  border: none;
 }
-.logout-btn:hover{
-    background: lightgray;
+.logout-btn:hover {
+  background: lightgray;
 }
