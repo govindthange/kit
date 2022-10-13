@@ -1,9 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authReducer from './features/Auth/auth-slice';
-import modalReducer from './features/ModalDialog/redux-slice';
-import dummyDataReducer from './features/DummyAsyncData/dummyDataSlice';
-import dummyThunkReducerForFetch from './features/DummyAsyncData/dummyThunkSliceForFetch';
-import dummyThunkReducerForAxios from './features/DummyAsyncData/dummyThunkSliceForAxios';
+import modalReducer from './features/dummy-async-data/components/ModalDialog/redux-slice';
+import dummyDataReducer from './features/dummy-async-data/dummyDataSlice';
+import dummyThunkReducerForFetch from './features/dummy-async-data/dummyThunkSliceForFetch';
+import dummyThunkReducerForAxios from './features/dummy-async-data/dummyThunkSliceForAxios';
 
 const store = configureStore({
   reducer: {

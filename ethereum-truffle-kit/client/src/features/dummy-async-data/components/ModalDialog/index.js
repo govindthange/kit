@@ -1,6 +1,6 @@
 import './index.css';
 import {useDispatch} from 'react-redux';
-import {clear} from '../DummyAsyncData/dummyDataSlice';
+import {clear} from '../../dummyDataSlice';
 import {closeModal} from './redux-slice';
 
 const ModalDialog = () => {

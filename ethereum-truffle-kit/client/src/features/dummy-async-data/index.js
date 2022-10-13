@@ -8,7 +8,7 @@ import {
   fetchAsyncRecordsWithAxios
 } from './dummyDataSlice';
 import {useEffect} from 'react';
-import DummyDataPoint from './DummyDataPoint';
+import DummyDataPoint from './components/DummyDataPoint';
 
 const DummyAsyncData = () => {
   const dispatch = useDispatch();

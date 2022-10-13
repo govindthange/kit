@@ -1,5 +1,5 @@
 import {parseISO, formatDistanceToNow} from 'date-fns';
-import {removeItem} from './dummyDataSlice';
+import {removeItem} from '../../dummyDataSlice';
 import {useDispatch} from 'react-redux';
 
 import React from 'react';
