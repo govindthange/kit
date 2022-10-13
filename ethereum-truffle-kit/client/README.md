@@ -1,8 +1,14 @@
 # Setup Browser
 
-## Install Browser Plugins
+## Setup Browser Plugins
 
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+
+## Setup ESLint & Prettier
+
+- Create `.eslintrc.js` file in your workspace directory. Add all the coding rules that you want to enforce here.
+- Create `.prettierrc.js` file in your workspace directory.
 
 # Getting Started with Create React App
 

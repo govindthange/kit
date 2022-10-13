@@ -20,6 +20,15 @@
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"dsznajder.es7-react-js-snippets",
+		"planbcoding.vscode-react-refactor",
+		"streetsidesoftware.code-spell-checker",
+		"vincaslt.highlight-matching-tag",
+		"formulahendry.auto-rename-tag",
+		"coenraads.bracket-pair-colorizer-2",
+		"naumovs.color-highlight"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

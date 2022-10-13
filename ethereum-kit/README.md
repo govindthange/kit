@@ -7,93 +7,98 @@
 1. Copy `ethereum-kit` folder.
 2. Open `.env` and set `APP_NAME` to the application name you desire.
 3. Launch the Visual Studio Code with Remote Container like so:
-    ```
-    govind@thinkpad:~/poc/ethereum-kit$ cd client/
-    govind@thinkpad:~/poc/ethereum-kit/client$ code .
-    ```
+   ```
+   govind@thinkpad:~/poc/ethereum-kit$ cd client/
+   govind@thinkpad:~/poc/ethereum-kit/client$ code .
+   ```
 4. Open the command terminal inside client container
 5. Backup all the contents of `/workspace/client/` folder. Call this backup `container-file-backup`.
 6. Delete all the contents insideDApp `/workspace/client/` folder.
 7. Run `create-react-app .` command inside the `/workspace/client/` folder.
-    ```
-    node ➜ /workspace/client $ create-react-app .
 
-    Creating a new React app in /workspace/client.
+   ```
+   node ➜ /workspace/client $ create-react-app .
 
-    Installing packages. This might take a couple of minutes.
-    Installing react, react-dom, and react-scripts with cra-template...
+   Creating a new React app in /workspace/client.
 
-
-    added 1393 packages in 1m
-
-    209 packages are looking for funding
-    run `npm fund` for details
-
-    Initialized a git repository.
-
-    Installing template dependencies using npm...
-
-    added 56 packages in 4s
-
-    209 packages are looking for funding
-    run `npm fund` for details
-    Removing template package using npm...
+   Installing packages. This might take a couple of minutes.
+   Installing react, react-dom, and react-scripts with cra-template...
 
 
-    removed 1 package, and audited 1449 packages in 2s
+   added 1393 packages in 1m
 
-    209 packages are looking for funding
-    run `npm fund` for details
+   209 packages are looking for funding
+   run `npm fund` for details
 
-    6 high severity vulnerabilities
+   Initialized a git repository.
 
-    To address all issues (including breaking changes), run:
-    npm audit fix --force
+   Installing template dependencies using npm...
 
-    Run `npm audit` for details.
+   added 56 packages in 4s
 
-    Created git commit.
+   209 packages are looking for funding
+   run `npm fund` for details
+   Removing template package using npm...
 
-    Success! Created client at /workspace/client
-    Inside that directory, you can run several commands:
 
-    npm start
-        Starts the development server.
+   removed 1 package, and audited 1449 packages in 2s
 
-    npm run build
-        Bundles the app into static files for production.
+   209 packages are looking for funding
+   run `npm fund` for details
 
-    npm test
-        Starts the test runner.
+   6 high severity vulnerabilities
 
-    npm run eject
-        Removes this tool and copies build dependencies, configuration files
-        and scripts into the app directory. If you do this, you can’t go back!
+   To address all issues (including breaking changes), run:
+   npm audit fix --force
 
-    We suggest that you begin by typing:
+   Run `npm audit` for details.
 
-    cd /workspace/client
-    npm start
+   Created git commit.
 
-    Happy hacking!
-    ```
+   Success! Created client at /workspace/client
+   Inside that directory, you can run several commands:
+
+   npm start
+       Starts the development server.
+
+   npm run build
+       Bundles the app into static files for production.
+
+   npm test
+       Starts the test runner.
+
+   npm run eject
+       Removes this tool and copies build dependencies, configuration files
+       and scripts into the app directory. If you do this, you can’t go back!
+
+   We suggest that you begin by typing:
+
+   cd /workspace/client
+   npm start
+
+   Happy hacking!
+   ```
+
 8. Restore locally saved contents of `container-file-backup` back to `/workspace/client/` folder.
 9. Finally run the `npm start` command to launch the development server.
-    ```
-    Compiled successfully!
 
-    You can now view client in the browser.
+   ```
+   Compiled successfully!
 
-    Local:            http://localhost:3000
-    On Your Network:  http://172.23.0.5:3000
+   You can now view client in the browser.
 
-    Note that the development build is not optimized.
-    To create a production build, use npm run build.
+   Local:            http://localhost:3000
+   On Your Network:  http://172.23.0.5:3000
 
-    webpack compiled successfully
-    ```
+   Note that the development build is not optimized.
+   To create a production build, use npm run build.
+
+   webpack compiled successfully
+   ```
+
 10. Your react client development environment is ready!
 11. Run following command on terminal to install redux.
+
     ```
     node ➜ /workspace/client (master ✗) $ npm install react-redux@8.0.4 redux@4.2.0 --save
 
@@ -109,7 +114,9 @@
 
     Run `npm audit` for details.
     ```
+
 12. Run following command on the terminal to integrate redux-toolkit:
+
     ```
     node ➜ /workspace/client (master ✗) $ npm install @reduxjs/toolkit@1.8.6 --save
 
@@ -124,6 +131,18 @@
     npm audit fix --force
 
     Run `npm audit` for details.
+    ```
+
+13. Run following command on the terminal to setup development workspace.
+    ```
+    npm install --save-dev babel-eslint
+    npm install --save-dev eslint-config-standard
+    npm install --save-dev eslint-config-standard-jsx
+    npm install --save-dev eslint-plugin-promise
+    npm install --save-dev eslint-plugin-import
+    npm install --save-dev eslint-plugin-node
+    npm install --save-dev eslint-plugin-react
+    npm install --save-dev prettier
     ```
 
 ## Cleanup Workspace
