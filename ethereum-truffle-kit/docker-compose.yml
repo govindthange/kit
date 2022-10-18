@@ -1,7 +1,14 @@
 version: "3"
 services:
+  app:
+    container_name: ${APP_NAME}-server
+    ports:
+      - 7777:7777
+    environment:
+      - TEST_PORT=7777
+
   dapp:
-    container_name: ${APP_NAME}
+    container_name: ${APP_NAME}-contracts
     links:
       - blockchain
       - ipfs
@@ -46,9 +53,12 @@ services:
   client:
     container_name: ${APP_NAME}-client
     links:
+      - app
       - dapp
     environment:
-      - TEST_HOST=dapp
-      - TEST_PORT=9999
+      - APP_HOST=app
+      - APP_PORT=7777
+      - DAPP_HOST=dapp
+      - DAPP_PORT=9999
     volumes:
       - ./client/src/contracts:/workspace/client/src/contracts

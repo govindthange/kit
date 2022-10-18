@@ -1,17 +1,14 @@
 {
-	"name": "Web 3.0 Client",
-	"service": "client",
+	"name": "Web 2.0 Application",
+	"service": "app",
 	"shutdownAction": "none",
 	"dockerComposeFile": [
-		"../../docker-compose-client.yml",
-		// Uncomment the following two lines to execute the application in integrated mode.
-		"../../docker-compose-app.yml",
-		"../../docker-compose-dapp.yml",
-		"../../docker-compose.yml"
+		"../../docker-compose-app.yml"
 	],
 
+
 	// Open the sub-folder with the source code
-	"workspaceFolder": "/workspace/client",
+	"workspaceFolder": "/workspace/app",
 	"runArgs": [
 		// "--cap-add=SYS_PTRACE",
 		// "--security-opt",
@@ -24,7 +21,6 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"dsznajder.es7-react-js-snippets",
-		"planbcoding.vscode-react-refactor",
 		"streetsidesoftware.code-spell-checker",
 		"vincaslt.highlight-matching-tag",
 		"formulahendry.auto-rename-tag",

@@ -5,6 +5,7 @@
 	"dockerComposeFile": [
 		"../../docker-compose-client.yml",
 		// Uncomment the following two lines to execute the application in integrated mode.
+		"../../docker-compose-app.yml",
 		"../../docker-compose-dapp.yml",
 		"../../docker-compose.yml"
 	],

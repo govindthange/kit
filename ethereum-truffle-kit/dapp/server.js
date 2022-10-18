@@ -6,11 +6,13 @@ const options = {
   method: "GET",
 };
 
-console.log("Service Configuration: ", options);
+console.log("DApp Container Configuration: ", options);
 
-http.createServer(function (req, res) {
-    console.log("Received request...")
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write('Hello World!');
+http
+  .createServer(function (req, res) {
+    console.log("Received request...");
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.write("DApp container is alive and reachable!");
     res.end();
-}).listen(options.port);
+  })
+  .listen(options.port);

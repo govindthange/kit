@@ -5,8 +5,10 @@ services:
       context: ./client
       dockerfile: .devcontainer/Dockerfile
     environment:
-      - TEST_HOST=host.docker.internal
-      - TEST_PORT=9999
+      - APP_HOST=host.docker.internal
+      - APP_PORT=7777
+      - DAPP_HOST=host.docker.internal
+      - DAPP_PORT=9999
     volumes:
       - .:/workspace:cached
     command: /bin/sh -c "while sleep 1000; do :; done"

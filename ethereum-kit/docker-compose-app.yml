@@ -1,14 +1,11 @@
 version: "3"
 services:
-  client:
+  app:
     build:
-      context: ./client
+      context: ./app
       dockerfile: .devcontainer/Dockerfile
     environment:
-      - APP_HOST=host.docker.internal
-      - APP_PORT=7777
-      - DAPP_HOST=host.docker.internal
-      - DAPP_PORT=9999
+      - TEST_PORT=7777
     volumes:
       - .:/workspace:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
