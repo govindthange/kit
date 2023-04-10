@@ -1,0 +1,10 @@
+services:
+  app:
+    container_name: ocr-app
+    build:
+      context: ./app
+    volumes:
+      - .:/workspace
+    ports:
+      - 3001:3000
+    command: /bin/sh -c "while sleep 1000; do :; done"
