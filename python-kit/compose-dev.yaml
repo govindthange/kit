@@ -1,0 +1,6 @@
+services:
+  app:
+    container_name: python-app
+    build:
+      context: ./app
+    command: /bin/sh -c "while sleep 1000; do :; done"
