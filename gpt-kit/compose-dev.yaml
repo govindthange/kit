@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: gpt-kit
+    build:
+      context: ./app
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ./app:/app
