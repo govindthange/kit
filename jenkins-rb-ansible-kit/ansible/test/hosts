@@ -1,0 +1,8 @@
+[servers]
+192.9.200.244
+
+[laptops]
+thinkpad ansible_host=192.9.200.244
+selfstart1 ansible_host=localhost
+selfstart2 ansible_host=127.0.0.1
+
