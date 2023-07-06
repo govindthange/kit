@@ -45,10 +45,61 @@ target1 | UNREACHABLE! => {
 #
 ```
 
+Or following error
+
+```
+$ ansible-playbook hello-world.yml
+[WARNING]: log file at /ansible/ansible.log is not writeable and we cannot create it, aborting
+
+
+PLAY [Echo] ********************************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] *********************************************************************************************************************************************************************************************************************
+[WARNING]: Unhandled error in Python interpreter discovery for host target2: Failed to connect to the host via ssh: Warning: Permanently added '192.9.200.244' (ED25519) to the list of known hosts.  govind@192.9.200.244: Permission
+denied (publickey,password).
+[WARNING]: Unhandled error in Python interpreter discovery for host target1: Failed to connect to the host via ssh: Warning: Permanently added 'thinkpad' (ED25519) to the list of known hosts.  govind@thinkpad: Permission denied
+(publickey,password).
+fatal: [target2]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "192.9.200.244". Make sure this host can be reached over ssh: govind@192.9.200.244: Permission denied (publickey,password).
+  unreachable: true
+fatal: [target1]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "thinkpad". Make sure this host can be reached over ssh: govind@thinkpad: Permission denied (publickey,password).
+  unreachable: true
+
+PLAY RECAP *********************************************************************************************************************************************************************************************************************************
+target1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+target2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+
+```
+
+
 Follow instructions specified [here](https://github.com/govindthange/playbooks/blob/main/linux/ssh-key-based-authentication) to setup SSH key-based authentication. For detailed blog click [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-22-04).
 
 
-### Althernative
+### Alternative
+
+#### Option 1.
+
+Just run `ssh-copy-id` command to send the keys to target machine:
+
+```
+$ ssh-copy-id govind@thinkpad
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/ansible/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+govind@thinkpad's password: 
+Permission denied, please try again.
+govind@thinkpad's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'govind@thinkpad'"
+and check to make sure that only the key(s) you wanted were added.
+```
+
+#### Option 2.
 
 **SSH Configuration**: You can also configure SSH options in the SSH client configuration file (`~/.ssh/config`) on the control node to simplify SSH connections. For example, you can set default SSH options for specific hosts, such as the SSH username and private key to use.
 

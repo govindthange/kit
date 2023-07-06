@@ -2,12 +2,17 @@ version: '3.7'
 services:
   jenkins:
     container_name: "devops-jenkins"
-    image: jenkins/jenkins:lts
+    # image: jenkins/jenkins:lts
+    build:
+        context: ./jenkins
+        dockerfile: Dockerfile
     volumes:
       - jenkins-volume:/var/jenkins_home
     ports:
       - "8080:8080"
       - "50000:50000"
+    networks:
+      - devops-network
 
   # reviewboard:
   #   image: beanbag/reviewboard:latest
@@ -19,13 +24,17 @@ services:
   ansible:
     # image: ansible/ansible:ubuntu1404
     container_name: "devops-ansible"
-    network_mode: host
+    # network_mode: host
     build:
         context: ./ansible
         dockerfile: Dockerfile
     volumes:
       - ansible-volume:/ansible
       - ./ansible/test:/test
+    networks:
+      - devops-network
+    ports:
+      - 8022:22
     command: /bin/sh -c "while sleep 1000; do :; done"
 
 
@@ -155,3 +164,8 @@ volumes:
   ansible-volume:
     driver: local
     driver_opts: { o: bind, type: none, device: ./ansible }
+
+
+networks:
+  devops-network:
+    driver: bridge
