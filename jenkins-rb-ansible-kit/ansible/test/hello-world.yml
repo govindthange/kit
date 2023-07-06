@@ -1,7 +1,7 @@
 ---
 # This playbook prints a simple debug message
 - name: Echo 
-  hosts: 127.0.0.1
+  hosts: all
   connection: local
 
   tasks:

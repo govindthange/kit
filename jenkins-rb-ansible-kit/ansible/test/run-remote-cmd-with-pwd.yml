@@ -1,0 +1,10 @@
+---
+- name: Run remote commands on target hosts with sudo password through --extra-vars
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+    ansible_become_pass: "{{ sudo_password }}"
+  tasks:
+    - name: Run echo w/ password in --extra-vars
+      command: echo "Hello, World!"

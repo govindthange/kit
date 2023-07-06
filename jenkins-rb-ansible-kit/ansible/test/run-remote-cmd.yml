@@ -1,0 +1,7 @@
+---
+- name: Run remote commands on target hosts using sudo password prompt
+  hosts: all
+  become: true
+  tasks:
+    - name: Run echo w/ sudo prompt
+      command: echo "Hello, World!"

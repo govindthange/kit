@@ -1,8 +1,12 @@
-[servers]
-192.9.200.244
+# File name: hosts
+# Description: Inventory file for your application.
 
-[laptops]
-thinkpad ansible_host=192.9.200.244
-selfstart1 ansible_host=localhost
-selfstart2 ansible_host=127.0.0.1
+# Defines machine type "deployment-nodes" to deploy specific artifacts
+[deployment_nodes]
+target1 ansible_host=thinkpad ansible_user=govind ansible_connection=ssh
+target2 ansible_host=192.9.200.244 ansible_user=govind ansible_connection=ssh
 
+# Defines machine type def_nodes to upload metadata.
+#[def_nodes]
+##server2 ansible_host = <target machine for artifact upload>
+#ansible_user = <Ansible user> ansible_connection = ssh server2 ansible_host = <host> ansible_user = <user> ansible_connection = ssh
