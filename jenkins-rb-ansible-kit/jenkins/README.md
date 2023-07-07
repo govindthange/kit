@@ -49,7 +49,6 @@ Do SSH (Note that ansible container's SSH port 22 is mapped to host's 8022)
 ssh ansible@ansible -p 8022
 ```
 
-
 ---
 
 References:
