@@ -1,43 +1,30 @@
 FROM python:3.8
 
-# Install dependencies
+USER root
+RUN echo 'root:changeme' | chpasswd && \
+    adduser admin && echo 'admin:changeme' | chpasswd
+
 RUN apt-get update && \
     apt-get install -y net-tools && \
-    apt-get install -y iputils-ping
+    apt-get install -y iputils-ping && \
+    apt-get update && apt-get install -y openssh-server && \
+    apt-get update && apt-get install -y openssh-client sshpass && \
+    pip install ansible
 
-# Install dependencies
-RUN apt-get update && apt-get install -y openssh-server
+# Generate SSH key for the root
+RUN ssh-keygen -t rsa -f /root/.ssh/id_rsa -q -N ""
 
-RUN apt-get update && apt-get install -y \
-    openssh-client \
-    sshpass
-
-# Install Ansible
-RUN pip install ansible
-
-# Create an Ansible user
-RUN useradd -m ansible
-
-# Generate SSH key for the Ansible user
-USER ansible
-RUN mkdir /home/ansible/.ssh && ssh-keygen -q -t rsa -N '' -f /home/ansible/.ssh/id_rsa
+# Generate SSH key for the admin
+USER admin
+RUN mkdir /home/admin/.ssh && ssh-keygen -q -t rsa -N '' -f /home/admin/.ssh/id_rsa
 
 # Copy the Ansible agent configuration file
-COPY ansible.cfg /home/ansible/.ansible.cfg
+COPY ./config/ansible.cfg /home/ansible/.ansible.cfg
 
-# Start the SSH service
+COPY ./config/ssh.cfg /etc/ssh/ssh_config
+COPY ./config/sshd.cfg /etc/ssh/sshd_config
+
 USER root
+RUN service ssh restart
 
-# Use the chpasswd command to set the password for the root user 
-RUN echo "root:root" | chpasswd
-
-RUN service ssh start
-
-# Set the working directory
-WORKDIR /home/ansible
-
-# Set the entrypoint command
-USER ansible
-CMD [ "ansible", "localhost", "-m", "ping" ]
-# CMD ["ansible-playbook", "your_playbook.yml"]
-# CMD ["/bin/bash"]
+CMD ["/bin/bash"]

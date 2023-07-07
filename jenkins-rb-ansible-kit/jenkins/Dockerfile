@@ -1,15 +1,11 @@
 FROM jenkins/jenkins
 
 USER root
-
-# Use the chpasswd command to set the password for the root user 
-RUN echo "root:root" | chpasswd
+RUN echo 'root:changeme' | chpasswd
 
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y net-tools && \
-    apt-get install -y iputils-ping
+    apt-get install -y iputils-ping && \
+    apt-get update && apt-get install -y openssh-client sshpass
 
-RUN apt-get update && apt-get install -y \
-    openssh-client \
-    sshpass

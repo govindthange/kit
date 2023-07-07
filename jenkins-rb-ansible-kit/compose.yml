@@ -9,17 +9,10 @@ services:
     volumes:
       - jenkins-volume:/var/jenkins_home
     ports:
-      - "8080:8080"
+      - "8888:8080"
       - "50000:50000"
     networks:
       - devops-network
-
-  # reviewboard:
-  #   image: beanbag/reviewboard:latest
-  #   volumes:
-  #     - reviewboard-volume:/var/www/reviewboard/data
-  #   ports:
-  #     - "8000:8000"
 
   ansible:
     # image: ansible/ansible:ubuntu1404
@@ -34,7 +27,7 @@ services:
     networks:
       - devops-network
     ports:
-      - 8022:22
+      - "8022:22"
     command: /bin/sh -c "while sleep 1000; do :; done"
 
 
@@ -100,7 +93,6 @@ services:
     depends_on:
       - db
       - memcached
-
     environment:
       - DATABASE_TYPE=mysql
 
@@ -108,7 +100,7 @@ services:
       #
       # CHANGEME: You should use your actual name here. It's used for
       #           internal state and your in-app support page.
-      - COMPANY=Docker Compose Test
+      - COMPANY=Govind's DevOps Kit
 
       # CHANGEME: Set this to the database username above.
       - DATABASE_USERNAME=reviewboard
@@ -120,7 +112,8 @@ services:
       - DOMAIN=localhost
 
     volumes:
-      - sitedir:/site
+      - reviewboard-nginx-shared-volume:/site
+      - reviewboard-volume:/var/www/reviewboard/data
 
   # The frontend nginx web server.
   #
@@ -145,16 +138,16 @@ services:
       - NGINX_PORT=80
 
     ports:
-      - 80:80
+      - 8889:80
 
     volumes:
-      - sitedir:/var/www/reviewboard
+      - reviewboard-nginx-shared-volume:/var/www/reviewboard
       - ./nginx_templates:/etc/nginx/templates
 
 
 volumes:
   db_data:
-  sitedir:
+  reviewboard-nginx-shared-volume:
   jenkins-volume:
     driver: local
     driver_opts: { o: bind, type: none, device: ./jenkins }
