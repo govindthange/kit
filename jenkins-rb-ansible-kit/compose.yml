@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   jenkins:
-    container_name: "devops-jenkins"
+    container_name: "devops-kit-jenkins"
     # image: jenkins/jenkins:lts
     build:
         context: ./jenkins
@@ -16,7 +16,7 @@ services:
 
   ansible:
     # image: ansible/ansible:ubuntu1404
-    container_name: "devops-ansible"
+    container_name: "devops-kit-ansible"
     # network_mode: host
     build:
         context: ./ansible
@@ -37,7 +37,7 @@ services:
   #
   # In production, this should be shared across all Review Board instances.
   db:
-    container_name: "devops-rb-mysql"
+    container_name: "devops-kit-rb-mysql"
     image: mysql:8
     environment:
       # The name of the MySQL database storing Review Board content.
@@ -69,7 +69,7 @@ services:
   # In production, this should be shared across all Review Board instances,
   # and should be configured with at least 2GB of RAM.
   memcached:
-    container_name: "devops-rb-memcached"
+    container_name: "devops-kit-rb-memcached"
     image: memcached:alpine
     restart: 'on-failure'
 
@@ -88,7 +88,7 @@ services:
   # This should not be accessed directly. Instead, please access the frontend
   # nginx server.
   reviewboard:
-    container_name: "devops-rb"
+    container_name: "devops-kit-rb"
     image: beanbag/reviewboard:6.0b1
     depends_on:
       - db
@@ -122,7 +122,7 @@ services:
   #
   # This is the server you will access for Review Board.
   nginx:
-    container_name: "devops-rb-nginx"
+    container_name: "devops-kit-rb-nginx"
     image: nginx:alpine
     restart: always
     depends_on:
