@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: ${APP_NAME}-server
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    working_dir: /${PROJECT_DIR_IN_CONTAINER}
+    volumes:
+      - ./server:${PROJECT_DIR_IN_CONTAINER}
+    environment:
+      SOME_ENV_VARIABLE: ${SOME_ENV_VARIABLE}
+
