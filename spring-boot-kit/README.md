@@ -15,12 +15,12 @@
 For the first execution run following script.
 
 ```
-govind@thinkpad:~/projects/spring-boot-kit$ ./setup.sh
+govind@thinkpad:~/projects/kit/spring-boot-kit$ ./setup.sh
 ```
 
 For subsequent runs use following script
 ```
-govind@thinkpad:~/projects/spring-boot-kit$ ./run.sh
+govind@thinkpad:~/projects/kit/spring-boot-kit$ ./run.sh
 ```
 
 ## Step 3. Setup the server environment for Java
@@ -29,9 +29,31 @@ govind@thinkpad:~/projects/spring-boot-kit$ ./run.sh
 2. Once VS Code opens, click on [><] icon towards bottom left corner. This will prompt for options to open remote window.
 3. Select `Attach to Running Container...`
 4. Select the relevant from the running container list.
-5. Once the VS Code opens, go to source code folder. If there is a popup saying `Workspace does not exist` then hit [Open Workspace...] button and select `/server` folder.
-6. Install `Extension Pack for Java` by Microsoft (Identifer: vscjava.vscode-java-pack)
-7. Install `Spring Extension pack`
+5. Once the VS Code opens if `server` folder is not automatically opened then open it. If there is a popup saying `Workspace does not exist` then hit [Open Workspace...] button and select `/server` folder.
+6. Hit `Ctrl+Shift+P` key to open Command Palette, then type `>Tasks: Run Task` and select `Spring Boot Kit: Install All Recommended Extensions` from the list. Finallly select `Continue without scanning the task output` from the options. This will install all the recommended plugins configured in `extensions.json` and produce following output.
+    ```
+    > Executing task: jq -r '.recommendations[]' ./.vscode/extensions.json | xargs -L 1 code --install-extension <
+
+    Installing extensions on Container spring-boot-kit-server (spring-boot-kit-server) @ desktop-linux...
+    Installing extension 'vscjava.vscode-java-pack'...
+    Extension 'vscjava.vscode-java-pack' v0.26.0 was successfully installed.
+    Installing extensions on Container spring-boot-kit-server (spring-boot-kit-server) @ desktop-linux...
+    Installing extension 'vmware.vscode-boot-dev-pack'...
+    Extension 'vmware.vscode-boot-dev-pack' v0.2.1 was successfully installed.
+
+    Terminal will be reused by tasks, press any key to close it.
+    ```
+7. Alternatively, if the above step doesn't work, open the terminal and execute `./.vscode/install-plugins.sh` script to install plugins like `Extension Pack for Java` from Microsoft (Identifer: vscjava.vscode-java-pack) and `Spring Boot Extension pack` from VMWare (Identifier: vmware.vscode-boot-dev-pack).
+    ```
+    root@c2343e8c3211:/server# ./.vscode/install-plugins.sh 
+    Installing extensions on Container spring-boot-kit-server (spring-boot-kit-server) @ desktop-linux...
+    Installing extension 'vscjava.vscode-java-pack'...
+    Extension 'vscjava.vscode-java-pack' v0.26.0 was successfully installed.
+    Installing extensions on Container spring-boot-kit-server (spring-boot-kit-server) @ desktop-linux...
+    Installing extension 'vmware.vscode-boot-dev-pack'...
+    Extension 'vmware.vscode-boot-dev-pack' v0.2.1 was successfully installed.
+    root@c2343e8c3211:/server# 
+    ```
 8. Open `./src/main/java/kit/springboot/RunFunction.java` file and run it by hitting `▶️` icon at the right top corner. This button was added by the Java Extension Pack.
 
 ---
