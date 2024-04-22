@@ -8,6 +8,8 @@ services:
       dockerfile: ./server/Dockerfile
     command: /bin/sh -c "while sleep 1000; do :; done"
     working_dir: /${PROJECT_DIR_IN_CONTAINER}
+    ports:
+      - ${SERVER_PORT}:9090
     volumes:
       - ./server:${PROJECT_DIR_IN_CONTAINER}
     environment:
